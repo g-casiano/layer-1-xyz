@@ -1,25 +1,31 @@
 ---
 import Counter from '../components/Counter.tsx';
+import Table from '../components/Table.tsx';
 ---
 
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width"
-		/>
-
+		<meta	name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
 		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+		<link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
+		<link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
 		<style>
+			:global(html) {
+				box-sizing: border-box;
+				font-size: 62.5%;
+			}
+			:global(body) {
+				padding: 0;
+				margin: 0;
+			}
 			:global(:root) {
 				font-family: system-ui;
 				font-family: 'Press Start 2P', cursive;
-				padding: 2em 0;
+				padding: 0;
+				margin: 0;
 			}
 			:global(.counter) {
 				display: grid;
@@ -33,13 +39,86 @@ import Counter from '../components/Counter.tsx';
 				place-items: center;
 				margin-bottom: 2em;
 			}
+			.dark-theme {
+				background-color: #202428;
+				color: white;
+			}
+			.l-one-wrapper {
+				padding: 0 2rem;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.l-one-header {
+				padding-top: 2rem;
+				position: relative;
+				justify-content: center;
+				display: flex;
+			}
+			.l-one-callout {
+				text-align: center;
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+			}
+			.l-one-header__top-menu {
+				position: absolute;
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 0.5rem;
+				top: 1rem;
+				right: 0;
+				width: auto;
+				height: auto;
+				max-width: 20rem;
+			}
+			:global(.comp-table) {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				font-size: 1.2rem;
+				margin: 0 auto;
+			}
+			.l-one-footer {
+				padding-top: 4rem;
+			}
 		</style>
 	</head>
 	<body>
-		<main>
-				<h1>Layer1.xyz</h1>
-			<Counter client:visible>
-			</Counter>
-		</main>
+		<div class="l-one-wrapper">
+			<header class="l-one-header">
+				<h1>
+					<a href="/">Layer1.xyz</a>
+					<i class="nes-icon trophy is-large"></i>
+				</h1>
+				<div class="l-one-header__top-menu">
+					<a href="/" target="_blank"><i class="nes-icon twitter"></i></a>
+					<a href="" target="_blank"><i class="nes-icon github"></i></a>
+					<a href="" target="_blank"><i>l</i></a>
+				</div>
+			</header>
+			<section class="l-one-callout">
+				<h5>
+					Live* comparision table for crypto smart contract platforms.
+				</h5>
+			</section>
+			<Table client:visible />
+
+			<div class="l-one-footer center">
+				<span class="nes-text is-disabled h3">created by <a href="/">g-casiano</a></span>
+			</div>
+
+
+
+				<!-- <Counter client:visible>
+				</Counter>
+
+				<div class="dark-theme">
+					<section class="nes-container is-dark with-title">
+						<h2 class="title">Title</h2>
+						<p>Hello rodri042!</p>
+					</section>
+				</div> -->
+
+
+			</div>
 	</body>
 </html>
