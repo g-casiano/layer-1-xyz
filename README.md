@@ -34,5 +34,5 @@ Expirement with crypto layer 1 platform statistics.
 
 ## TODO
 
-- [x]
+- [ ] Workbox implementation
 - [ ]
